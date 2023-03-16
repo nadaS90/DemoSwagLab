@@ -19,27 +19,37 @@ namespace DemoSwagLab.Common_Locators
         //Locators :
         public const String CartID = "shopping_cart_link";
         public const String CloseBurgerMenuID = "react-burger-cross-btn";
-        public const String BurgerMenuID = "react -burger-menu-btn";
+        public const String BurgerMenuID = "react-burger-menu-btn";
+        public const String AboutLinkID = "about_sidebar_link";
+
 
 
         #endregion
 
         public IWebElement CloseBurgerMenu => driver.FindElement(By.Id(CloseBurgerMenuID));
         public IWebElement BurgerMenu => driver.FindElement(By.Id(BurgerMenuID));
-        public IWebElement BurgerMenuOptions(string optionName) => driver.FindElement(By.XPath($"//nav[@class='bm-item-list']//a[text()='{optionName}']"));
+        public IWebElement AboutLink => driver.FindElement(By.Id(AboutLinkID));
         public IWebElement Cart => driver.FindElement(By.ClassName(CartID));
 
 
 
 
 
-        public void SelectMenuOption(string burgerMenuOption)
+        public void SelectMenuOption()
         {
             ClickBtn(BurgerMenu);
-            BurgerMenuOptions(burgerMenuOption).Click();
         }
 
-
+        public void ClickOnAboutLink()
+        {
+            ClickBtn(AboutLink);
+           
+        }
+        public void GetNewTabDetails()
+        {
+            Console.WriteLine("Current window id: " + driver.CurrentWindowHandle);
+            Console.WriteLine("Page title in second tab is: " + driver.Title);
+        }
         public void NavigatesToCart()
         {
             ClickBtn(Cart);

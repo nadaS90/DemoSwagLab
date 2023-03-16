@@ -16,9 +16,9 @@ namespace DemoSwagLab
 
         public LoginTestsStep(IWebDriver driver)
         {
-            this._loginObject = new LoginPage(Hooks.driver);
+            _loginObject = new LoginPage(Hooks.driver);
 
-            this._homeObject = new HomePage(Hooks.driver);
+            _homeObject = new HomePage(Hooks.driver);
         }
 
         [Given(@"User on the log in page")]

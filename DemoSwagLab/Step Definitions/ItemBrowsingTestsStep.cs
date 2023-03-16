@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using System;
 using TechTalk.SpecFlow;
 using NUnit.Framework;
-
+using DemoSwagLab.Common_Locators;
 
 namespace DemoSwagLab
 {
@@ -29,6 +29,7 @@ namespace DemoSwagLab
         public void ThenTheResultsAreSortedAccordingToTheOption(string option)
         {
             _homeObject.VerifyThatSortingByOrderAppliedCorrectly(option);
+         
         }
 
         [When(@"The user clicks on an item")]
@@ -42,7 +43,7 @@ namespace DemoSwagLab
         {
             _itemDetails.DoesTheItemNameDisplayed();
             var actualItemName = _itemDetails.CorrectItemName;
-            Assert.AreEqual("Sauce Labs Backpack", actualItemName, "The names are not matching");
+            Assert.AreEqual("Sauce Labs Bolt T-Shirt", actualItemName, "The names are not matching");
 
         }
 

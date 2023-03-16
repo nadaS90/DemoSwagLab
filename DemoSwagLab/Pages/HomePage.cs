@@ -22,12 +22,14 @@ namespace DemoSwagLab.Pages
         public const String ItemBackPackID = "add-to-cart-sauce-labs-backpack";
         public const String ItembikeLightID = "add-to-cart-sauce-labs-bike-light";
         public const String ItemTchirtID = "add-to-cart-sauce-labs-bolt-t-shirt";
+        public const String ItemBoltTChirtID = "item_1_img_link";
         #endregion
         public IWebElement ItemName => driver.FindElement(By.XPath(ItemNameID));
         public IWebElement ItemPhoto => driver.FindElement(By.XPath(ItemPhotoID));
         public IWebElement ItemBackPack => driver.FindElement(By.Id(ItemBackPackID));
         public IWebElement ItembikeLight => driver.FindElement(By.Id(ItembikeLightID));
         public IWebElement ItemTchirt => driver.FindElement(By.Id(ItemTchirtID));
+        public IWebElement ItemBoltTChirt => driver.FindElement(By.Id(ItemBoltTChirtID));
         public IWebElement OrderItemsDropDown => driver.FindElement(By.ClassName(OrderItemsDropDownID));
         public IWebElement ActiveOrderOption => driver.FindElement(By.ClassName(ActiveOrderOptionID));
         public string ItemPhotoDetails => ItemPhoto.Text;
@@ -83,8 +85,7 @@ namespace DemoSwagLab.Pages
 
        public void NavigatesToItemDetailsPage()
         {
-            ImplicitWait();
-            ClickBtn(ItemTchirt);
+            ClickBtn(ItemBoltTChirt);
         }
 
 
