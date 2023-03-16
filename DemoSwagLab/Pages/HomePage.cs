@@ -17,17 +17,17 @@ namespace DemoSwagLab.Pages
         //Locators :
         public const String ItemNameID = "//div[@class='inventory_item_name']";
         public const String ItemPhotoID = "//img[@class='inventory_item_img']";
-        public const String BurgerMenuID = "react -burger-menu-btn";
         public const String OrderItemsDropDownID = "product_sort_container";
-        public const String CloseBurgerMenuID = "react-burger-cross-btn";
         public const String ActiveOrderOptionID = "active_option";
-        public const String ItemBackPackID = "item_4_title_link";
+        public const String ItemBackPackID = "add-to-cart-sauce-labs-backpack";
+        public const String ItembikeLightID = "add-to-cart-sauce-labs-bike-light";
+        public const String ItemTchirtID = "add-to-cart-sauce-labs-bolt-t-shirt";
         #endregion
         public IWebElement ItemName => driver.FindElement(By.XPath(ItemNameID));
         public IWebElement ItemPhoto => driver.FindElement(By.XPath(ItemPhotoID));
-        public IWebElement BurgerMenu => driver.FindElement(By.Id(BurgerMenuID));
         public IWebElement ItemBackPack => driver.FindElement(By.Id(ItemBackPackID));
-        public IWebElement CloseBurgerMenu => driver.FindElement(By.Id(CloseBurgerMenuID));
+        public IWebElement ItembikeLight => driver.FindElement(By.Id(ItembikeLightID));
+        public IWebElement ItemTchirt => driver.FindElement(By.Id(ItemTchirtID));
         public IWebElement OrderItemsDropDown => driver.FindElement(By.ClassName(OrderItemsDropDownID));
         public IWebElement ActiveOrderOption => driver.FindElement(By.ClassName(ActiveOrderOptionID));
         public string ItemPhotoDetails => ItemPhoto.Text;
@@ -62,13 +62,9 @@ namespace DemoSwagLab.Pages
         }
 
 
-        public void SelectMenuOption(string option)
-        {
-            ClickBtn(BurgerMenu);
-            // BurgerMenuOptions(option).Click();
-        }
+       
 
-        public void SelectOrder(string option)
+        public void SelectOrderOfTheItems(string option)
         {
             SelectElement orderOptionDropdown = new SelectElement(OrderItemsDropDown);
             if (!ActiveOrderOption.Text.Contains(option))
@@ -85,8 +81,17 @@ namespace DemoSwagLab.Pages
             Assert.AreEqual(option.ToLower(), currentOrderOption.ToLower(), "Order is not applied");
         }
 
-       public void SelectAnItem()
+       public void NavigatesToItemDetailsPage()
         {
+            ImplicitWait();
+            ClickBtn(ItemTchirt);
+        }
+
+
+        public void AddItemsToTheCart()
+        {
+            ClickBtn(ItembikeLight);
+            ImplicitWait();
             ClickBtn(ItemBackPack);
         }
 

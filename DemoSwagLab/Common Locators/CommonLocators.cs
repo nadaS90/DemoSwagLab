@@ -1,4 +1,5 @@
 ﻿using DemoSwagLab.Base;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -17,25 +18,31 @@ namespace DemoSwagLab.Common_Locators
         #region MyRegion
         //Locators :
         public const String CartID = "shopping_cart_link";
+        public const String CloseBurgerMenuID = "react-burger-cross-btn";
+        public const String BurgerMenuID = "react -burger-menu-btn";
+
+
         #endregion
 
+        public IWebElement CloseBurgerMenu => driver.FindElement(By.Id(CloseBurgerMenuID));
+        public IWebElement BurgerMenu => driver.FindElement(By.Id(BurgerMenuID));
         public IWebElement BurgerMenuOptions(string optionName) => driver.FindElement(By.XPath($"//nav[@class='bm-item-list']//a[text()='{optionName}']"));
-        public IWebElement AddToCartButton(string productName) => driver.FindElement(By.XPath($"//div[@class='pricebar']/button[contains(@data-test, {productName})]"));
         public IWebElement Cart => driver.FindElement(By.ClassName(CartID));
 
 
 
 
-        public void NavigateToYourCartPage()
+
+        public void SelectMenuOption(string burgerMenuOption)
+        {
+            ClickBtn(BurgerMenu);
+            BurgerMenuOptions(burgerMenuOption).Click();
+        }
+
+
+        public void NavigatesToCart()
         {
             ClickBtn(Cart);
         }
-
-        public void AddProductToCart(string productName)
-        {
-            string parsedProductTitle = productName.ToLower().Replace(" ", "-");
-            AddToCartButton(parsedProductTitle).Click();
-        }
-
     }
 }

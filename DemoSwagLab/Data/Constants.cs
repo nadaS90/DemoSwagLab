@@ -15,7 +15,7 @@ namespace DemoSwagLab.Data
 
         public const string FirstName = "Test";
         public const string LastName = "Demo";
-        public const string ZipCode = "1234";
+        public const string ZipCode = "Code";
 
         public const string ExpectedPhotoName = "src=\'/static/media/sauce-backpack-1200x1500.0a0b85a3.jpg\'";
     }

@@ -22,7 +22,7 @@ namespace DemoSwagLab
         [When(@"the user selects (.*) from the filter dropdown")]
         public void WhenTheUserSelectsOptionFromTheFilterDropdown(string option)
         {
-            _homeObject.SelectOrder(option);
+            _homeObject.SelectOrderOfTheItems(option);
         }
 
         [Then(@"the results are sorted according to the (.*)")]
@@ -34,7 +34,7 @@ namespace DemoSwagLab
         [When(@"The user clicks on an item")]
         public void WhenTheUserClicksOnAnItem()
         {
-            _homeObject.SelectAnItem(); 
+            _homeObject.NavigatesToItemDetailsPage(); 
         }
 
         [Then(@"The item information displayed")]

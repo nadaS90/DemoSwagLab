@@ -13,22 +13,15 @@
 @regression
 	Scenario: Verify that user can add products to the cart
 	When the user adds items to the cart
+	And the user navigates to the Cart page
 	Then the item will be added to the cart
-
-@regression
-	Scenario: Verify that user can remove products to their shopping cart
 	When the user removes an item to the cart
 	Then the item will be removed to the cart
 
 @regression
-	Scenario: Verify that the shopping cart displays the correct product information
-	When the user adds items to the cart
-	Then the correct item will be added to the cart
-
-@regression
 	Scenario: Verify that the user can successfully complete the checkout process
-	When the user adds an item to the cart
-	And the user navigates to the Cart page
+	When the user adds items to the cart
+	When the user navigates to the Cart page
 	And the user clicks on checkout button
 	When the user fills the mandatory fields
 	And the user clicks on continue button
